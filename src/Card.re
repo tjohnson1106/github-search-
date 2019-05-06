@@ -3,7 +3,15 @@ let component = ReasonReact.statelessComponent("Card");
 let make = (~name, ~description, ~href, _children) => {
   ...component,
   render: _self =>
-    <div>
+    <div
+      style={
+        ReactDOMRe.Style.make(
+          ~border="2px solid #898989",
+          ~borderRadius="4px",
+          ~padding="1rem",
+          (),
+        )
+      }>
       <h3>
         <a href target="_blank" rel="noopener noreferrer">
           {ReasonReact.string(name)}
