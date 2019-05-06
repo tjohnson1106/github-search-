@@ -3,15 +3,7 @@ let component = ReasonReact.statelessComponent("Card");
 let make = (~name, ~description, ~href, _children) => {
   ...component,
   render: _self =>
-    <div
-      style={
-        ReactDOMRe.Style.make(
-          ~border="2px solid #898989",
-          ~borderRadius="4px",
-          ~padding="1rem",
-          (),
-        )
-      }>
+    <div className=Styles.card>
       <h3>
         <a href target="_blank" rel="noopener noreferrer">
           {ReasonReact.string(name)}
@@ -19,4 +11,14 @@ let make = (~name, ~description, ~href, _children) => {
       </h3>
       <p> {ReasonReact.string(description)} </p>
     </div>,
+};
+
+module Styles = {
+  open Css;
+  let card =
+    style([
+      border(px(1), `solid, hex("898989")),
+      borderRadius(px(4)),
+      padding(rem(1.0)),
+    ]);
 };
